@@ -7,18 +7,24 @@ public class Main {
         Hero mcCree = new Hero();
         Hero soldier76 = new Hero();
         Hero widowMaker = new Hero();
+        Hero dVa = new Hero();
 
         Duel duel = new Duel();
 
         mcCree.heroSet("McCree", false, 40, 10, 20, 35);
         soldier76.heroSet("Soldier 76", true, 30, 10, 25, 25);
         widowMaker.heroSet("Widowmaker", true, 45, 40, 30, 10);
+        dVa.heroSet("D.Va", true, 90, 5, 10, 30);
+
 
         // Duels ran at long range
         System.out.println("\nLong Range Duels:\n**********************");
         System.out.println(Duel.fightTime(mcCree.heroName, mcCree.longRange, soldier76.heroName, soldier76.longRange));
         System.out.println(Duel.fightTime(mcCree.heroName, mcCree.longRange, widowMaker.heroName, widowMaker.longRange));
         System.out.println(Duel.fightTime(soldier76.heroName, soldier76.longRange, widowMaker.heroName, widowMaker.longRange));
+        System.out.println(Duel.fightTime(dVa.heroName, dVa.longRange, mcCree.heroName, mcCree.longRange));
+        System.out.println(Duel.fightTime(dVa.heroName, dVa.longRange, soldier76.heroName, soldier76.longRange));
+        System.out.println(Duel.fightTime(dVa.heroName, dVa.longRange, widowMaker.heroName, widowMaker.longRange));
 
         // Duels ran at medium range
         System.out.println("\nMedium Range Duels: \n**********************");
