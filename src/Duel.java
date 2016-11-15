@@ -3,6 +3,12 @@
  */
 public class Duel {
 
+    /*
+
+    Currently unused in this iteration.
+
+     */
+
     public static int fightTime(String heroOne, int attackOne, int hpOne, String heroTwo, int attackTwo, int hpTwo) {
         if (attackOne > attackTwo) {
             hpTwo = hpTwo - attackOne;

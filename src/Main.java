@@ -4,74 +4,68 @@
 public class Main {
     public static void main(String[] args) {
 
-        // add health modifier for duels
-        int fightCheck = 0;
+        // creates instances of heroes
+        Hero mcCree = new Hero("McCree", 150, 20, 40, 55, false);
+        Hero soldier76 = new Hero("Soldier 76", 150, 25, 30, 30, true);
 
-        Hero mcCree = new Hero("McCree", false, 150, 10, 20, 35, false);
-        Hero soldier76 = new Hero("Soldier 76", true, 150, 10, 25, 25, true);
-        Hero zenyatta = new Hero("Zenyatta", false, 100, 20, 20, 20, true);
-        //Hero dVa = new Hero("D.Va", true, 250, 5, 10, 30, false);
-
-        Duel duel = new Duel();
-
-        //fightCheck = Duel.fightTime(mcCree.heroName, mcCree.longRange, mcCree.hitPoints, soldier76.heroName, soldier76.longRange, soldier76.hitPoints);
-
-
-
-        /* mcCree("McCree", false, 40, 10, 20, 35);
-        soldier76.heroSet("Soldier 76", true, 30, 10, 25, 25);
-        widowMaker.heroSet("Widowmaker", true, 45, 40, 30, 10);
-        dVa.heroSet("D.Va", true, 90, 5, 10, 30); */
-
-        // for(int leftOver = )
-
-        System.out.println("Hero Stats:\n**********************");
+        // output starting stats
+        System.out.println("Hero Stats Before Round 1:\n**********************");
         System.out.println(mcCree.toString());
         System.out.println(soldier76.toString());
-        System.out.println(zenyatta.toString());
 
+        System.out.println("\n**********************\nHeroes Enage In Round 1 Combat: Long Range\n**********************\n\n");
+        // damage round
+        mcCree.readyUltimateCheck(mcCree.longRange);
+        soldier76.readyUltimateCheck(soldier76.longRange);
+        // checks for ultimate
+        mcCree.combatRound(soldier76.longRange, mcCree.hitPoints);
+        soldier76.combatRound(mcCree.longRange, soldier76.hitPoints);
+        // checks if can heal
+        mcCree.activeHeal();
+        soldier76.activeHeal();
 
-        // Duels ran at long range
-        System.out.println("\nLong Range Encounter:\n**********************");
-        System.out.println("When " + mcCree.heroName + " and " + soldier76.heroName + " enage at long range: ");
-        System.out.println(Duel.heroDuel(mcCree.heroName, mcCree.longRange, mcCree.hitPoints, soldier76.heroName, soldier76.longRange, soldier76.hitPoints));
+        // output changed stats
+        System.out.println("Hero Stats After Round 1:\n**********************");
+        System.out.println(mcCree.toString());
+        System.out.println(soldier76.toString());
 
-        System.out.println("When " + mcCree.heroName + " and " + zenyatta.heroName + " enage at long range: ");
-        System.out.println(Duel.heroDuel(mcCree.heroName, mcCree.longRange, mcCree.hitPoints, zenyatta.heroName, zenyatta.longRange, zenyatta.hitPoints));
+        System.out.println("\n**********************\nHeroes Enage In Round 2 Combat: Medium Range\n**********************\n\n");
+        // damage round
+        mcCree.readyUltimateCheck(mcCree.mediumRange);
+        soldier76.readyUltimateCheck(soldier76.mediumRange);
+        // checks for ultimate
+        mcCree.combatRound(soldier76.mediumRange, mcCree.hitPoints);
+        soldier76.combatRound(mcCree.mediumRange, soldier76.hitPoints);
+        // checks if can heal
+        mcCree.activeHeal();
+        soldier76.activeHeal();
+        // checks if alive
+        mcCree.aliveCheck();
+        soldier76.aliveCheck();
 
-        System.out.println("When " + soldier76.heroName + " and " + zenyatta.heroName + " enage at long range: ");
-        System.out.println(Duel.heroDuel(soldier76.heroName, soldier76.longRange, soldier76.hitPoints, zenyatta.heroName, zenyatta.longRange, zenyatta.hitPoints));
-        /* System.out.println(Duel.fightTime(dVa.heroName, dVa.longRange, mcCree.heroName, mcCree.longRange));
-        System.out.println(Duel.fightTime(dVa.heroName, dVa.longRange, soldier76.heroName, soldier76.longRange));
-        System.out.println(Duel.fightTime(dVa.heroName, dVa.longRange, zenyatta.heroName, zenyatta.longRange));*/
+        // output changed stats
+        System.out.println("Hero Stats After Round 2:\n**********************");
+        System.out.println(mcCree.toString());
+        System.out.println(soldier76.toString());
 
-        // Duels ran at medium range
-        System.out.println("\nMedium Range Encounter: \n**********************");
-        System.out.println("When " + mcCree.heroName + " and " + soldier76.heroName + " enage at medium range: ");
-        System.out.println(Duel.heroDuel(mcCree.heroName, mcCree.mediumRange, mcCree.hitPoints, soldier76.heroName, soldier76.mediumRange, soldier76.hitPoints));
+        System.out.println("\n**********************\nHeroes Enage In Round 3 Combat: Short Range\n**********************\n\n");
+        // damage round
+        mcCree.readyUltimateCheck(mcCree.shortRange);
+        soldier76.readyUltimateCheck(soldier76.shortRange);
+        // checks for ultimate
+        mcCree.combatRound(soldier76.shortRange, mcCree.hitPoints);
+        soldier76.combatRound(mcCree.shortRange, soldier76.hitPoints);
+        // checks if can heal
+        mcCree.activeHeal();
+        soldier76.activeHeal();
+        // checks if alive
+        mcCree.aliveCheck();
+        soldier76.aliveCheck();
 
-        System.out.println("When " + mcCree.heroName + " and " + zenyatta.heroName + " enage at medium range: ");
-        System.out.println(Duel.heroDuel(mcCree.heroName, mcCree.mediumRange, mcCree.hitPoints, zenyatta.heroName, zenyatta.mediumRange, zenyatta.hitPoints));
-
-        System.out.println("When " + soldier76.heroName + " and " + zenyatta.heroName + " enage at medium range: ");
-        System.out.println(Duel.heroDuel(soldier76.heroName, soldier76.mediumRange, soldier76.hitPoints, zenyatta.heroName, zenyatta.mediumRange, zenyatta.hitPoints));
-
-        // Duels ran at short range
-        System.out.println("\nShort Range Encounter: \n**********************");
-        System.out.println("When " + mcCree.heroName + " and " + soldier76.heroName + " enage at short range: ");
-        System.out.println(Duel.heroDuel(mcCree.heroName, mcCree.shortRange, mcCree.hitPoints, soldier76.heroName, soldier76.shortRange, soldier76.hitPoints));
-
-        System.out.println("When " + mcCree.heroName + " and " + zenyatta.heroName + " enage at short range: ");
-        System.out.println(Duel.heroDuel(mcCree.heroName, mcCree.shortRange, mcCree.hitPoints, zenyatta.heroName, zenyatta.shortRange, zenyatta.hitPoints));
-
-        System.out.println("When " + soldier76.heroName + " and " + zenyatta.heroName + " enage at short range: ");
-        System.out.println(Duel.heroDuel(soldier76.heroName, soldier76.shortRange, soldier76.hitPoints, zenyatta.heroName, zenyatta.shortRange, zenyatta.hitPoints));
-
-//        Code to print the basic string
-//        System.out.println(mcCree.heroName + " " + mcCree.ultimateReady + " " + mcCree.longRange + " " + mcCree.mediumRange + " " + mcCree.shortRange + ".");
-//        System.out.println(soldier76.heroName + " " + soldier76.ultimateReady + " " + soldier76.longRange + " " + soldier76.mediumRange + " " + soldier76.shortRange + ".");
-//        System.out.println(widowMaker.heroName + " " + widowMaker.ultimateReady + " " + widowMaker.longRange + " " + widowMaker.mediumRange + " " + widowMaker.shortRange + ".");
-
+        // output changed stats
+        System.out.println("Hero Stats After Round 3:\n**********************");
+        System.out.println(mcCree.toString());
+        System.out.println(soldier76.toString());
 
     }
 
